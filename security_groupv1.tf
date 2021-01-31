@@ -1,10 +1,10 @@
-/**
+
 resource "aws_security_group" "allow_tls" {
   name        = "abdul_test"
   description = "Allow TLS inbound traffic"
   vpc_id      = data.aws_vpc.default.id
 
-
+/**
  ingress {
     description = "TLS from VPC"
     from_port   = 443
@@ -29,13 +29,15 @@ resource "aws_security_group" "allow_tls" {
     cidr_blocks = ["103.153.104.12/32","111.111.104.12/32"]
   }
 
+**/
+
 
   dynamic "ingress" {
     for_each = var.inbound
     content {
       from_port   = ingress.value["from_port"]
       to_port     = ingress.value["to_port"]
-      protocol    = ingress.value.["protocol"]
+      protocol    = ingress.value["protocol"]
       cidr_blocks = [ingress.value.cidr_blocks]
       description = ingress.value.description
     }
@@ -54,4 +56,3 @@ resource "aws_security_group" "allow_tls" {
     Name = "abdul"
   }
 }
-**/
