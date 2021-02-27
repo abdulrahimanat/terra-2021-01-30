@@ -4,5 +4,5 @@ provider "aws" {
   secret_key = var.abdul_secret
 }
 
-varibale "abdul_acces" {}
-varibale "abdul_secret" {}
+variable "abdul_acces" {}
+variable "abdul_secret" {}
